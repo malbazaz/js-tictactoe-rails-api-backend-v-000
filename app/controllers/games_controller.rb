@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   # Add your GamesController code here
   def create
     game = Game.create(game_params)
-render json: game, status: 201
+    render json: game, status: 201
   end
 
   def update
@@ -19,5 +19,10 @@ render json: game, status: 201
     @game = Game.find(params[:id])
     render json: @game
   end
+
+  private 
+
+  def game_params 
+    params.require(:game).permit(:state)
 
 end

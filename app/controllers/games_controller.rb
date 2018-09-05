@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game = Game.find(params[:id])
   end
 
   def index
